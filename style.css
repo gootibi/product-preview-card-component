@@ -1,0 +1,252 @@
+/*=============== FONTS ===============*/
+
+/* montserrat-500 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 500;
+  src: url("../fonts/montserrat-v29-latin-500.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* montserrat-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Montserrat";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/montserrat-v29-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/* fraunces-700 - latin */
+@font-face {
+  font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
+  font-family: "Fraunces";
+  font-style: normal;
+  font-weight: 700;
+  src: url("../fonts/fraunces-v32-latin-700.woff2") format("woff2"); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+}
+
+/*=============== VARIABLES CSS ===============*/
+
+:root {
+  /*========== Colors ==========*/
+  /* Primary colors */
+  --clr-green-500: hsl(158, 36%, 37%);
+  --clr-green-700: hsl(158, 42%, 18%);
+
+  /* Neutral colors */
+  --clr-black: hsl(212, 21%, 14%);
+  --clr-grey: hsl(228, 12%, 48%);
+  --clr-cream: hsl(30, 38%, 92%);
+  --clr-white: hsl(0, 0%, 100%);
+
+  /*========== Font family ==========*/
+  --primary-font: "Montserrat", Arial, Helvetica, sans-serif;
+  --accent-font: "Fraunces", "Times New Roman", Times, serif;
+
+  /*========== Font sizes ==========*/
+  --big-font-size: 5.5rem;
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.75rem;
+  --h3-font-size: 1.5rem;
+  --larger-font-size: 2rem;
+  --large-font-size: 1.1rem;
+  --medium-font-size: 0.9rem;
+  --normal-font-size: 0.875rem;
+  --small-font-size: 0.8125rem;
+
+  /*========== Font weight ==========*/
+  --font-medium: 500;
+  --font-bold: 700;
+
+  /*========== Line height ==========*/
+
+  --h1-line-height: 1;
+  --p-line-height: 1.5;
+
+  /*========== Border radius ==========*/
+
+  --border-radius: 0.5rem;
+
+  /*========== Transition ==========*/
+  --transition: all 200ms ease-in-out;
+}
+
+/*=============== BASE ===============*/
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  text-decoration: 0;
+  box-sizing: border-box;
+}
+
+body,
+button {
+  color: var(--clr-grey);
+  font-family: var(--primary-font);
+  font-size: var(--normal-font-size);
+}
+
+body {
+  background-color: var(--clr-cream);
+}
+
+p {
+  font-size: var(--normal-font-size);
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--clr-black);
+  font-family: var(--accent-font);
+  font-weight: var(--font-bold);
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  object-fit: cover;
+}
+
+button,
+input,
+textarea {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}
+
+/*=============== LAYOUT ===============*/
+
+/* Mobile */
+
+.container {
+  max-width: 1440px;
+  min-width: 320px;
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  padding-inline: 1rem;
+  margin-inline: auto;
+}
+
+.poduct-container {
+  background-color: var(--clr-white);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.poduct-container .img img {
+  border-top-left-radius: var(--border-radius);
+  border-top-right-radius: var(--border-radius);
+}
+
+.content {
+  padding: 1.5rem;
+  display: grid;
+  row-gap: 1rem;
+}
+
+.content .category {
+  text-transform: uppercase;
+  letter-spacing: 5px;
+  font-size: var(--medium-font-size);
+  color: var(--clr-grey);
+}
+
+.content h1 {
+  font-size: var(--h1-font-size);
+  line-height: var(--h1-line-height);
+}
+
+.content .text {
+  line-height: var(--p-line-height);
+  font-weight: var(--font-medium);
+}
+
+.content .price {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.content .price .current-price {
+  color: var(--clr-green-500);
+  font-family: var(--accent-font);
+  font-size: var(--larger-font-size);
+  font-weight: var(--font-bold);
+}
+
+.content .price .original-price {
+  color: var(--clr-grey);
+  text-decoration: line-through;
+}
+
+.content .button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  background-color: var(--clr-green-500);
+  color: var(--clr-white);
+  padding-block: 1rem;
+  border-radius: var(--border-radius);
+  font-family: var(--primary-font);
+  font-size: var(--large-font-size);
+  font-weight: var(--font-medium);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.content .button:hover {
+  background-color: var(--clr-green-700);
+}
+
+/*=============== BREAKPOINTS ===============*/
+
+/* Media query Desktop */
+
+@media (min-width: 700px) {
+  .container {
+    width: 680px;
+  }
+
+  .poduct-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .poduct-container .img img {
+    content: url("./images/image-product-desktop.jpg");
+    aspect-ratio: 1/1;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-top-right-radius: 0;
+    border-bottom-left-radius: var(--border-radius);
+  }
+
+  .content {
+    padding-block: 2.5rem;
+    padding-inline: 2rem;
+    row-gap: 2rem;
+  }
+
+  .content .text {
+    max-width: 25ch;
+  }
+}
